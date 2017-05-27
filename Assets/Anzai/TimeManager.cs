@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class TimeManager : MonoBehaviour {
 
-    public static float _limitTime = 10.0f;
+    public float _limitTime = 10.0f;
 
     public GameObject _TimeText;
 

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
 	public const float _MaxLife = 100;
@@ -30,6 +31,9 @@ public class Player : MonoBehaviour {
 		IsHitLight ();
 
 		Recovery ();
+
+		if (_life <= 0)
+			SceneManager.LoadScene ("result");
 	}
 
 	void Recovery()
@@ -52,7 +56,7 @@ public class Player : MonoBehaviour {
 
 			float range = enemy.GetComponent<Light> ().range;
 
-			if(!Physics.Raycast(ownPos,dir,length)){
+			if (!Physics.Raycast (ownPos, dir, length)) {
 				if (length < range) {
 					_life -= _damageValue * Time.deltaTime;
 
@@ -62,12 +66,14 @@ public class Player : MonoBehaviour {
 						_audio.loop = true;
 						_audio.Play ();
 					}
-				} else {
-					_audio.Stop ();
-					_isSetDmageClip = false;
 				}
 
 				SetHPGaugeValue ();
+			} else {
+				if (_isSetDmageClip) {
+					_audio.Stop ();
+					_isSetDmageClip = false;
+				}
 			}
 		}
 	}
