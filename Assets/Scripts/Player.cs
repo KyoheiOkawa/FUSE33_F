@@ -12,7 +12,13 @@ public class Player : MonoBehaviour {
 
 	public GameObject _hpGauge;
 
+	public AudioClip _damageSound;
+
 	private GameObject[] _enemies;
+
+	public AudioSource _audio;
+
+	private bool _isSetDmageClip = false;
 
 	// Use this for initialization
 	void Start () {
@@ -47,8 +53,19 @@ public class Player : MonoBehaviour {
 			float range = enemy.GetComponent<Light> ().range;
 
 			if(!Physics.Raycast(ownPos,dir,length)){
-				if(length < range)
+				if (length < range) {
 					_life -= _damageValue * Time.deltaTime;
+
+					if (!_isSetDmageClip) {
+						_isSetDmageClip = true;
+						_audio.clip = _damageSound;
+						_audio.loop = true;
+						_audio.Play ();
+					}
+				} else {
+					_audio.Stop ();
+					_isSetDmageClip = false;
+				}
 
 				SetHPGaugeValue ();
 			}
