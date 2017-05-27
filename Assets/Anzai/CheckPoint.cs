@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class CheckPoint : MonoBehaviour {
 
+    public AudioClip audioClip;
+    private AudioSource audioSource;
     public GameObject[] _respawns;
     private int _randNum = 0;
-    public int temp = 0;
 
     // Use this for initialization
     void Start () {
@@ -22,8 +23,13 @@ public class CheckPoint : MonoBehaviour {
     {
         if(col.gameObject.tag == "Player")
         {
+            //音だし
+            audioSource = gameObject.GetComponent<AudioSource>();
+            audioSource.clip = audioClip;
+            audioSource.Play();
+
             //レベル上げる
-            LevelManager._GameLevel += 1;
+            LevelManager._GameLevel++;
 
             var Trans = this.gameObject.GetComponent<Transform>();
 
