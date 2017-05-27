@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class LevelManager : MonoBehaviour {
 
     static public int _GameLevel = 1;
+    public int a = _GameLevel;
 
     public GameObject TextObj;
     Text _myText;
@@ -19,7 +20,9 @@ public class LevelManager : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        _myText.text = "Level : " + _GameLevel.ToString();//テキストの変更
+        a = _GameLevel;
+        Score._LevelScore = _GameLevel;
+        _myText.text = _GameLevel.ToString();//テキストの変更
 
     }
 }
