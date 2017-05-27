@@ -24,11 +24,16 @@ public class Player : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		_enemies = GameObject.FindGameObjectsWithTag ("Enemy");
+
+        LevelManager._GameLevel = 1;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		IsHitLight ();
+        if (Input.GetKey("escape"))
+            Application.Quit();
+
+        IsHitLight ();
 
 		Recovery ();
 
@@ -48,6 +53,8 @@ public class Player : MonoBehaviour {
 	{
 		var ownPos = transform.position;
 
+        bool isOffSE = true;
+
 		foreach (var enemy in _enemies) {
 			var enePos = enemy.transform.position;
 			Vector3 dir = enePos - ownPos;
@@ -66,16 +73,18 @@ public class Player : MonoBehaviour {
 						_audio.loop = true;
 						_audio.Play ();
 					}
+
+                    isOffSE = false;
 				}
 
 				SetHPGaugeValue ();
-			} else {
-				if (_isSetDmageClip) {
-					_audio.Stop ();
-					_isSetDmageClip = false;
-				}
 			}
 		}
+        if (isOffSE)
+        {
+            _isSetDmageClip = false;
+            _audio.Stop();
+        }
 	}
 
 	void SetHPGaugeValue()
