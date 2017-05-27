@@ -6,6 +6,12 @@ public class Player : MonoBehaviour {
 	public const float _MaxLife = 100;
 	public float _life = 100;
 
+	public float _damageValue = 10;//1秒あたりのダメージ量
+
+	public float _recoveryValue = 5;
+
+	public GameObject _hpGauge;
+
 	private GameObject[] _enemies;
 
 	// Use this for initialization
@@ -16,6 +22,16 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		IsHitLight ();
+
+		Recovery ();
+	}
+
+	void Recovery()
+	{
+		if (_life < _MaxLife)
+			_life += _recoveryValue * Time.deltaTime;
+
+		SetHPGaugeValue ();
 	}
 
 	void IsHitLight()
@@ -32,8 +48,17 @@ public class Player : MonoBehaviour {
 
 			if(!Physics.Raycast(ownPos,dir,length)){
 				if(length < range)
-					_life -= Time.deltaTime;
+					_life -= _damageValue * Time.deltaTime;
+
+				SetHPGaugeValue ();
 			}
 		}
+	}
+
+	void SetHPGaugeValue()
+	{
+		float uiValue = (_MaxLife - _life) / _MaxLife;
+		uiValue = Mathf.Min (uiValue, _MaxLife);
+		_hpGauge.GetComponent<GameUI> ().gage = uiValue;
 	}
 }
