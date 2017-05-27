@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 135495119088383416}
   - component: {fileID: 23318494854466842}
   m_Layer: 0
-  m_Name: ChackPoint
+  m_Name: ChackPoint 1
   m_TagString: Respawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
