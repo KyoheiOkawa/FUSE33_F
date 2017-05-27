@@ -17,6 +17,18 @@ public class GameScript : MonoBehaviour
 		}
 	}
 
+    void Start()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKey("escape"))
+            Application.Quit();
+    }
+
     public void OnClick()
     {
         SceneManager.LoadScene("Title");

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour {
 
@@ -14,15 +15,26 @@ public class LevelManager : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        _myText = TextObj.GetComponent<Text>();
+        var scene = SceneManager.GetActiveScene();
+        var sceneName = scene.name;
+
+        if (sceneName == "Stage1")
+        {
+            _myText = TextObj.GetComponent<Text>();
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        a = _GameLevel;
-        Score._LevelScore = _GameLevel;
-        _myText.text = _GameLevel.ToString();//テキストの変更
+        var scene = SceneManager.GetActiveScene();
+        var sceneName = scene.name;
 
+        if (sceneName == "Stage1")
+        {
+            a = _GameLevel;
+            Score._LevelScore = _GameLevel;
+            _myText.text = _GameLevel.ToString();//テキストの変更
+        }
     }
 }
