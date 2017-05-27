@@ -5,6 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class GameScript : MonoBehaviour
 {
+	[SerializeField]
+	UnityEngine.UI.Text scoreText;
+
+	void Awake()
+	{
+		Score s = GameObject.FindObjectOfType<Score>();
+		if(s != null)
+		{
+			scoreText.text = s.a.ToString();
+		}
+	}
 
     public void OnClick()
     {
