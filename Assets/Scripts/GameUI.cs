@@ -14,6 +14,42 @@ public class GameUI : MonoBehaviour {
 	[SerializeField, Range(0,1)]
 	public float gage = 0; // ゲージ表示量（テスト用）.
 
+	[SerializeField]
+	Text timeText; // .
+
+	public string time
+	{
+		set
+		{
+			if (string.IsNullOrEmpty(value))
+			{
+				return;
+			}
+
+			int i = 0;
+			if (!int.TryParse(value, out i)) { return; }
+			timeText.text = value;
+		}
+	}
+
+	[SerializeField]
+	Text lavelText; // .
+
+	public string level
+	{
+		set
+		{
+			if (string.IsNullOrEmpty(value))
+			{
+				return;
+			}
+
+			int i = 0;
+			if (!int.TryParse(value, out i)) { return; }
+			lavelText.text = value;
+		}
+	}
+
 	// ゲージの表示変更.
 	public float updateFilament
 	{
