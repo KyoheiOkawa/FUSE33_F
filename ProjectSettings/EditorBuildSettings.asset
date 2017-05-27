@@ -4,4 +4,13 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/muroi yuki/Title.unity
+    guid: 3c1d58de74f9e814db69e48e05cef754
+  - enabled: 1
+    path: Assets/Scene/Stage1.unity
+    guid: 4cd1f13bf92b552469d0c2f5a9b7f721
+  - enabled: 1
+    path: Assets/tominaga/result.unity
+    guid: 02b5e6185d6638d48b4473dcfd58ecf8

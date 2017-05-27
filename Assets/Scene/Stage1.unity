@@ -3473,7 +3473,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _life: 100
-  _damageValue: 10
+  _damageValue: 20
   _recoveryValue: 5
   _hpGauge: {fileID: 1088795943}
   _damageSound: {fileID: 8300000, guid: 036b8f9d9c510d04b98fae38cfdabfdc, type: 3}

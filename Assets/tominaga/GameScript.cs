@@ -8,6 +8,6 @@ public class GameScript : MonoBehaviour
 
     public void OnClick()
     {
-        SceneManager.LoadScene("title");
+        SceneManager.LoadScene("Title");
     }
 }
