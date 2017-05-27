@@ -6,6 +6,7 @@ public class CheckPoint : MonoBehaviour {
 
     public GameObject[] _respawns;
     private int _randNum = 0;
+    public int temp = 0;
 
     // Use this for initialization
     void Start () {
@@ -22,7 +23,7 @@ public class CheckPoint : MonoBehaviour {
         if(col.gameObject.tag == "Player")
         {
             //レベル上げる
-            LevelManager._GameLevel++;
+            LevelManager._GameLevel += 1;
 
             var Trans = this.gameObject.GetComponent<Transform>();
 

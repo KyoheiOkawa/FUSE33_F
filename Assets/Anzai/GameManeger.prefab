@@ -51,4 +51,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c534d70acbce0344c9ee0326340500f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TextObj: {fileID: 0}
+  TextObj: {fileID: 1764149353388560, guid: 3ab9696956456de409a29a6d79a1f104, type: 2}
