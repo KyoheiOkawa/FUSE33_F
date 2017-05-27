@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using UnityEngine.SceneManagement;
+
 public class Test : MonoBehaviour {
 
 	// Use this for initialization
@@ -15,6 +17,7 @@ public class Test : MonoBehaviour {
 	}
     public void OnClick()
     {
+        SceneManager.LoadScene("Stage1");
         Debug.Log("Call");
 
     }
