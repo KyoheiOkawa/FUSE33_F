@@ -1,4 +1,10 @@
-﻿using System.Collections;
+/*
+ *@class Player.cs
+ *@brief プレイヤーのクラス
+ *@author KyoheiOkawa
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
